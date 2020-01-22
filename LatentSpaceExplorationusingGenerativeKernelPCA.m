@@ -17,7 +17,6 @@ image_size = [28,28];
 
 % Launch GUI
 GenerativeKernelPCA_GUI(digits_MNIST,labels_MNIST,image_size,@visualise_x_hat_image)
-
 clear digits_MNIST; % Free up memory
 
 %% Analyse Yale Faces
