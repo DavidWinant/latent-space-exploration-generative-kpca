@@ -1,0 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%% Analyze Give Me Some Credit %%%%%%%%%%%%%%%%%%%%
+
+input = readtable('cs-training.csv');
+
+%%
+
+data = input(:,3:0);
+labels = input(:,2);
+
+x_labels = 
+
+

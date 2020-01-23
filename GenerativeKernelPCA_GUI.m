@@ -211,15 +211,15 @@ p = uipanel('Parent',f,'Title','Settings','Position',[.25 .05 .5 .35]);
 
 % Sliders for moving along the principal components
 
-uicontrol('Parent',p,'Style','slider','Max',maxH(1),'Min',minH(1),'Value',H(1,1),...
+pc1slider = uicontrol('Parent',p,'Style','slider','Max',maxH(1),'Min',minH(1),'Value',H(1,1),...
 'Sliderstep',[0.01 0.1],'Position',[350 215 150 20],'Callback',@(src,eventdata)prin_slider_Callback(src,eventdata,1));
-uicontrol('Parent',p,'Style','slider','Max',maxH(2),'Min',minH(2),'Value',H(1,2),...
+pc2slider = uicontrol('Parent',p,'Style','slider','Max',maxH(2),'Min',minH(2),'Value',H(1,2),...
 'Sliderstep',[0.01 0.1],'Position',[350 165 150 20],'Callback',@(src,eventdata)prin_slider_Callback(src,eventdata,2));
-uicontrol('Parent',p,'Style','slider','Max',maxH(3),'Min',minH(3),'Value',H(1,3),...
+pc3slider = uicontrol('Parent',p,'Style','slider','Max',maxH(3),'Min',minH(3),'Value',H(1,3),...
 'Sliderstep',[0.01 0.1],'Position',[350 115 150 20],'Callback',@(src,eventdata)prin_slider_Callback(src,eventdata,3));
-uicontrol('Parent',p,'Style','slider','Max',maxH(4),'Min',minH(4),'Value',H(1,4),...
+pc4slider = uicontrol('Parent',p,'Style','slider','Max',maxH(4),'Min',minH(4),'Value',H(1,4),...
 'Sliderstep',[0.01 0.1],'Position',[350 65 150 20],'Callback',@(src,eventdata)prin_slider_Callback(src,eventdata,4));
-uicontrol('Parent',p,'Style','slider','Max',maxH(5),'Min',minH(5),'Value',H(1,5),...
+pc5slider = uicontrol('Parent',p,'Style','slider','Max',maxH(5),'Min',minH(5),'Value',H(1,5),...
 'Sliderstep',[0.01 0.1],'Position',[350 15 150 20],'Callback',@(src,eventdata)prin_slider_Callback(src,eventdata,5));
 
 slider1title = uicontrol('Style','text',             ...
@@ -419,6 +419,18 @@ function sigma_slider_Callback(src,eventdata)
     findEstimate();
     visualise_x_hat(x_hat,generated_data_axes,visualise_arguments);
     visualiseFeatureSpace();
+    
+    % Update range for sliders for principal components
+    minH(:) = round(min(H(:,1:N_comp)),5);
+
+    maxH(:) = round(max(H(:,1:N_comp)),5);
+
+    set(pc1slider,'Min',minH(1),'Max',maxH(1),'Value',H(1,1));
+    set(pc2slider,'Min',minH(2),'Max',maxH(2),'Value',H(1,2));
+    set(pc3slider,'Min',minH(3),'Max',maxH(3),'Value',H(1,3));
+    set(pc4slider,'Min',minH(4),'Max',maxH(4),'Value',H(1,4));
+    set(pc5slider,'Min',minH(5),'Max',maxH(5),'Value',H(1,5));
+
     
     
 end
