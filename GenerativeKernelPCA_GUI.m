@@ -207,7 +207,7 @@ end
 
 
 % Create slider panel
-p = uipanel('Parent',f,'Title','Settings','Position',[.25 .05 .5 .35]);
+p = uipanel('Parent',f,'Title','Settings','Position',[.45 .05 .5 .35]);
 
 % Sliders for moving along the principal components
 

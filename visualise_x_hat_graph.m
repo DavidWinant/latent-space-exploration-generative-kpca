@@ -6,6 +6,6 @@ function visualise_x_hat_graph(x_hat,axes,x_labels)
         xtickangle(axes,45);
     end
     xticklabels(axes,x_labels);
-    ylim(axes,[-2.5,2.5])
+    ylim(axes,[-5,5])
     ylabel(axes,'Standard deviation from the mean')
     
